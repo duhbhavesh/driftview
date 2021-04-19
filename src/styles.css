@@ -1,0 +1,10 @@
+@import url('https://driftcss.netlify.app/css/drift.css');
+
+body {
+   color: #ffffff;
+   background-color: #202020;
+}
+
+.wrapper-sidebar {
+   width: 240px;
+}

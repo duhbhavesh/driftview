@@ -1,0 +1,30 @@
+.sidebar-nav-md {
+   display: none;
+}
+
+@media (min-width: 840px) {
+   .sidebar-nav-md {
+      display: block;
+      background-color: #3c3c3c;
+      padding-top: 1rem;
+      height: 100vh;
+      position: sticky;
+      top: 4rem;
+      overflow: auto;
+   }
+
+   .sidebar-item-link {
+      padding: 1rem;
+   }
+
+   .sidebar-item-link a {
+      color: #ffffff;
+   }
+
+   .sidebar-item-link .fas {
+      color: #909090;
+   }
+   .sidebar-item-link .fas:active {
+      color: #ffffff;
+   }
+}

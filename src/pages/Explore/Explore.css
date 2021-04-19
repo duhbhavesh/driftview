@@ -1,0 +1,4 @@
+.wrapper-videolist {
+   display: flex;
+   flex-direction: row;
+}
