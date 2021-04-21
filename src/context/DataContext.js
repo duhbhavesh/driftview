@@ -1,13 +1,13 @@
+import data from '../data/data';
 import { createContext, useContext, useReducer } from 'react';
 import { DataReducer } from '../reducer/DataReducer';
 
 export const DataContext = createContext();
 
 const initialState = {
-   videoList: [],
+   videos: data,
    videoLiked: [],
    videoPlaylist: [],
-   sidebar: false,
 };
 
 export const DataProvider = ({ children }) => {

@@ -1,5 +1,5 @@
 .navbar {
-   background-color: #3c3c3c;
+   background-color: #2d3133;
 }
 
 .container-nav {
@@ -14,11 +14,11 @@
    position: fixed;
    width: 100%;
    z-index: 15;
-   background-color: #3c3c3c;
+   background-color: #2d3133;
 }
 
 .btn-bars {
-   background-color: #3c3c3c;
+   background-color: #2d3133;
    color: #ffffff;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .sidebar-nav .sidebar-header {
-   background-color: #3c3c3c;
+   background-color: #2d3133;
    border-bottom: none;
 }
 

@@ -43,7 +43,7 @@ export const Header = () => {
                   <input
                      className='input-box form-control'
                      type='search'
-                     placeholder='Search for products...'
+                     placeholder='Search'
                      aria-label='Search'
                   />
                   <button className='btn btn-search' type='submit'>
@@ -65,7 +65,7 @@ export const Header = () => {
                   <input
                      className='input-box form-control'
                      type='search'
-                     placeholder='Search for products...'
+                     placeholder='Search'
                      aria-label='Search'
                   />
                   <button className='btn btn-search' type='submit'>

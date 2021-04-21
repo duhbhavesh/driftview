@@ -1,1 +1,57 @@
-export const DataReducer = () => {};
+const ADD_TO_LIKED = 'ADD_TO_LIKED';
+const REMOVE_FROM_LIKED = 'REMOVE_FROM_LIKED';
+const ADD_NEW_PLAYLIST = 'ADD_NEW_PLAYLIST';
+const DELETE_PLAYLIST = 'DELETE_PLAYLIST';
+const ADD_TO_PLAYLIST = 'ADD_TO_PLAYLIST';
+const REMOVE_FROM_PLAYLIST = 'REMOVE_FROM_PLAYLIST';
+
+export const DataReducer = (state, { type, payload }) => {
+   switch (type) {
+      case ADD_TO_LIKED:
+         return { ...state, likedVideo: [...state.likedVideo, payload] };
+      case REMOVE_FROM_LIKED:
+         return {
+            ...state,
+            likedVideo: state.likedVideo.filter(
+               (item) => item.id !== payload.id,
+            ),
+         };
+      case ADD_NEW_PLAYLIST:
+         return {
+            ...state,
+            playlists: [...state.playlists, { name: payload, id: [] }],
+         };
+      case ADD_TO_PLAYLIST:
+         return {
+            ...state,
+            playlists: state.playlists.map((playlist) => {
+               if (playlist.name === payload.name) {
+                  return { ...playlist, id: [...playlist.id, payload.id] };
+               }
+               return playlist;
+            }),
+         };
+      case REMOVE_FROM_PLAYLIST:
+         return {
+            ...state,
+            playlists: state.playlist.map((playlist) => {
+               if (playlist.name === payload.name) {
+                  return {
+                     ...playlist,
+                     id: playlist.id.filter((item) => item !== payload.id),
+                  };
+               }
+               return playlist;
+            }),
+         };
+      case DELETE_PLAYLIST:
+         return {
+            state,
+            playlists: state.playlists.filter(
+               (playlist) => playlist.name !== payload.name,
+            ),
+         };
+      default:
+         return state;
+   }
+};
