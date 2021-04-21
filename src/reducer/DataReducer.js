@@ -8,23 +8,23 @@ const REMOVE_FROM_PLAYLIST = 'REMOVE_FROM_PLAYLIST';
 export const DataReducer = (state, { type, payload }) => {
    switch (type) {
       case ADD_TO_LIKED:
-         return { ...state, likedVideo: [...state.likedVideo, payload] };
+         return { ...state, videoLiked: [...state.videoLiked, payload] };
       case REMOVE_FROM_LIKED:
          return {
             ...state,
-            likedVideo: state.likedVideo.filter(
+            videoLiked: state.videoLiked.filter(
                (item) => item.id !== payload.id,
             ),
          };
       case ADD_NEW_PLAYLIST:
          return {
             ...state,
-            playlists: [...state.playlists, { name: payload, id: [] }],
+            videoPlaylist: [...state.videoPlaylist, { name: payload, id: [] }],
          };
       case ADD_TO_PLAYLIST:
          return {
             ...state,
-            playlists: state.playlists.map((playlist) => {
+            videoPlaylist: state.videoPlaylist.map((playlist) => {
                if (playlist.name === payload.name) {
                   return { ...playlist, id: [...playlist.id, payload.id] };
                }
@@ -34,7 +34,7 @@ export const DataReducer = (state, { type, payload }) => {
       case REMOVE_FROM_PLAYLIST:
          return {
             ...state,
-            playlists: state.playlist.map((playlist) => {
+            videoPlaylist: state.playlist.map((playlist) => {
                if (playlist.name === payload.name) {
                   return {
                      ...playlist,
@@ -47,7 +47,7 @@ export const DataReducer = (state, { type, payload }) => {
       case DELETE_PLAYLIST:
          return {
             state,
-            playlists: state.playlists.filter(
+            videoPlaylist: state.videoPlaylist.filter(
                (playlist) => playlist.name !== payload.name,
             ),
          };

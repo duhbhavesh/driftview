@@ -1,14 +1,24 @@
+import { useData } from '../../context/DataContext';
 import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import { useData } from '../../context/DataContext';
 import './VideoDetailCard.css';
 
 export const VideoDetailCard = () => {
-   const { state } = useData();
-   const { videos } = state;
+   const { state, dispatch } = useData();
+   const { videos, videoLiked } = state;
    const { videoID } = useParams();
 
    const video = videos.find((one) => one.id === videoID);
+
+   const searchLikes = videoLiked.filter((item) => item.id === video.id);
+
+   const handleLikedVideo = (video) => {
+      if (searchLikes.length === 0) {
+         return dispatch({ type: 'ADD_TO_LIKED', payload: video });
+      } else {
+         return dispatch({ type: 'REMOVE_FROM_LIKED', payload: video });
+      }
+   };
 
    return (
       <>
@@ -26,8 +36,15 @@ export const VideoDetailCard = () => {
                <div className='video-detail-stats'>
                   <div className='video-detail-date'>{video.publishedDate}</div>
                   <div className='video-detail-actions'>
-                     <button className='video-action'>
-                        <i className='far fa-heart'></i>
+                     <button
+                        onClick={() => handleLikedVideo(video)}
+                        className='video-action'>
+                        <i
+                           className={
+                              searchLikes.length === 0
+                                 ? 'far fa-heart'
+                                 : 'fas fa-heart'
+                           }></i>
                      </button>
                      <button className='video-action'>
                         <i className='fas fa-list'></i>
