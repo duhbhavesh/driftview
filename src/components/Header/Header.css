@@ -17,45 +17,6 @@
    background-color: #2d3133;
 }
 
-.btn-bars {
-   background-color: #2d3133;
-   color: #ffffff;
-}
-
-.btn-close {
-   border-radius: 50%;
-}
-
-.sidebar-nav {
-   background-color: #202020;
-}
-
-.sidebar-nav .btn {
-   background-color: #ffffff;
-   color: #202020;
-}
-
-.sidebar-nav .sidebar-header {
-   background-color: #2d3133;
-   border-bottom: none;
-}
-
-.sidebar-nav .sidebar-links {
-   border-bottom: none;
-}
-
-.sidebar-nav ul li a {
-   color: #ffffff;
-}
-
-.sidebar-nav ul li a:hover {
-   color: #fbfbfb;
-}
-
-.sidebar-item-link {
-   padding-bottom: 1rem;
-}
-
 @media (min-width: 840px) {
    .container-nav {
       padding-bottom: 3rem;
@@ -71,9 +32,5 @@
       position: fixed;
       width: 100%;
       z-index: 15;
-   }
-
-   .sidebar-overlay {
-      display: none;
    }
 }

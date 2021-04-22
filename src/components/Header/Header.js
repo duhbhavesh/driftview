@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SidebarData } from '../Sidebar/SidebarData';
 import { MobileNavData, DesktopNavData } from '../Header/HeaderData';
 import './Header.css';
+import { SidebarMobile } from '../Sidebar/SidebarMobile';
 
 export const Header = () => {
-   const [sidebar, setSidebar] = useState(false);
-   const handleSidebar = () => setSidebar(!sidebar);
+   const [showSidebar, setShowSidebar] = useState(false);
+   const handleSidebar = () => setShowSidebar(true);
 
    return (
       <>
@@ -85,46 +85,10 @@ export const Header = () => {
          </div>
 
          {/* Mobile Sidebar */}
-         <div
-            onClick={() => setSidebar(false)}
-            className={
-               sidebar ? 'sidebar-overlay active' : 'sidebar-overlay'
-            }></div>
-         <nav className={sidebar ? 'sidebar-nav active' : 'sidebar-nav'}>
-            <div className='sidebar-header'>
-               <div className='container-sidebar'>
-                  <div className='sidebar-top'>
-                     <div className='sidebar-login'>
-                        <a className='btn btn-primary' href='/'>
-                           <i className='fas fas-sidebar fas-sidebar-user fa-user'></i>
-                           Log In
-                        </a>
-                     </div>
-
-                     <div className='sidebar-close'>
-                        <button
-                           onClick={handleSidebar}
-                           type='button'
-                           id='sidebarCollapseX'
-                           className='btn btn-link btn-close'>
-                           <i className='fas fa-times'></i>
-                        </button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-            <ul className='sidebar-links'>
-               {SidebarData.map((item) => (
-                  <li key={item.index} className='sidebar-item-link'>
-                     <Link to={item.link}>
-                        <i className={item.iconClassName}></i>
-                        <span className='sidebar-link'>{item.title}</span>
-                     </Link>
-                  </li>
-               ))}
-            </ul>
-         </nav>
+         <SidebarMobile
+            showSidebar={showSidebar}
+            setShowSidebar={setShowSidebar}
+         />
       </>
    );
 };

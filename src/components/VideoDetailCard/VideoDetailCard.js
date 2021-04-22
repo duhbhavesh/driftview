@@ -1,24 +1,29 @@
 import { useData } from '../../context/DataContext';
 import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import { checkLikes } from '../../utils/utils';
+import { PlaylistModal } from '../../components/PlaylistModal/PlaylistModal';
 import './VideoDetailCard.css';
+import { useState } from 'react';
 
 export const VideoDetailCard = () => {
    const { state, dispatch } = useData();
-   const { videos, videoLiked } = state;
+   const { videos } = state;
    const { videoID } = useParams();
 
    const video = videos.find((one) => one.id === videoID);
 
-   const searchLikes = videoLiked.filter((item) => item.id === video.id);
+   const [showModal, setShowModal] = useState(false);
 
-   const handleLikedVideo = (video) => {
-      if (searchLikes.length === 0) {
+   const handleLikedVideo = () => {
+      if (checkLikes(state, video).length === 0) {
          return dispatch({ type: 'ADD_TO_LIKED', payload: video });
       } else {
          return dispatch({ type: 'REMOVE_FROM_LIKED', payload: video });
       }
    };
+
+   const handlePlaylist = () => setShowModal(true);
 
    return (
       <>
@@ -28,6 +33,7 @@ export const VideoDetailCard = () => {
                   width='100%'
                   height='360px'
                   controls
+                  playing='true'
                   url={`https://www.youtube.com/watch?v=${video.id}`}
                />
             </div>
@@ -37,21 +43,28 @@ export const VideoDetailCard = () => {
                   <div className='video-detail-date'>{video.publishedDate}</div>
                   <div className='video-detail-actions'>
                      <button
-                        onClick={() => handleLikedVideo(video)}
+                        onClick={() => handleLikedVideo()}
                         className='video-action'>
                         <i
                            className={
-                              searchLikes.length === 0
+                              checkLikes(state, video).length === 0
                                  ? 'far fa-heart'
                                  : 'fas fa-heart'
                            }></i>
                      </button>
-                     <button className='video-action'>
+                     <button
+                        onClick={() => handlePlaylist()}
+                        className='video-action'>
                         <i className='fas fa-list'></i>
                      </button>
                      <button className='video-action'>
                         <i className='fas fa-clock'></i>
                      </button>
+                     <PlaylistModal
+                        video={video}
+                        showModal={showModal}
+                        setShowModal={setShowModal}
+                     />
                   </div>
                </div>
                <div className='video-detail-channel'>

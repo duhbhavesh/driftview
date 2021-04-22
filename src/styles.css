@@ -4,3 +4,38 @@ body {
    color: #ffffff;
    background-color: #202020;
 }
+
+.wrapper {
+   display: flex;
+   flex-direction: column;
+}
+
+.wrapper-videos {
+   display: flex;
+   width: 100%;
+   flex-direction: column;
+}
+
+@media (min-width: 840px) {
+   .wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+   }
+
+   .wrapper-videos {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 85%;
+      margin: 1rem;
+   }
+
+   .wrapper-sidebar {
+      width: 200px;
+   }
+}
+
+@media (min-width: 960px) {
+   .wrapper-sidebar {
+      width: 240px;
+   }
+}

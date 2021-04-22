@@ -9,7 +9,7 @@ export const Explore = () => {
    const { videos } = state;
    return (
       <>
-         <div className='wrapper-videolist'>
+         <div className='wrapper'>
             <div className='wrapper-sidebar'>
                <SidebarDesktop />
             </div>

@@ -34,19 +34,20 @@ export const DataReducer = (state, { type, payload }) => {
       case REMOVE_FROM_PLAYLIST:
          return {
             ...state,
-            videoPlaylist: state.playlist.map((playlist) => {
+            videoPlaylist: state.videoPlaylist.map((playlist) => {
                if (playlist.name === payload.name) {
                   return {
                      ...playlist,
                      id: playlist.id.filter((item) => item !== payload.id),
                   };
+               } else {
+                  return playlist;
                }
-               return playlist;
             }),
          };
       case DELETE_PLAYLIST:
          return {
-            state,
+            ...state,
             videoPlaylist: state.videoPlaylist.filter(
                (playlist) => playlist.name !== payload.name,
             ),

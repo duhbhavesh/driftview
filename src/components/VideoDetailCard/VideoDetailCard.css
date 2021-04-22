@@ -54,8 +54,20 @@
    color: #fff;
 }
 
+@media (min-width: 600px) {
+   .video-detail-card {
+      width: 80%;
+   }
+}
+
 @media (min-width: 840px) {
    .video-detail-card {
-      width: 45%;
+      width: 70%;
+   }
+}
+
+@media (min-width: 960px) {
+   .video-detail-card {
+      width: 60%;
    }
 }

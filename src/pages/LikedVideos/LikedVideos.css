@@ -5,10 +5,16 @@
    margin: 1rem;
 }
 
+.wrapper-liked {
+   align-self: flex-start;
+   margin: 0 auto;
+   max-width: 90%;
+   width: 90%;
+}
+
 .liked-videos {
    display: flex;
    flex-wrap: wrap;
-   max-width: 70%;
    margin: 0 auto;
    margin-top: 1rem;
    background-color: #3c3c3c;

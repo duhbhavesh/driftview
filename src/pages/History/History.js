@@ -1,16 +1,14 @@
 import { SidebarDesktop } from '../../components/Sidebar/SidebarDesktop';
-import { VideoDetailCard } from '../../components/VideoDetailCard/VideoDetailCard';
+import './History.css';
 
-export const VideoDetail = () => {
+export const History = () => {
    return (
       <>
          <div className='wrapper'>
             <div className='wrapper-sidebar'>
                <SidebarDesktop />
             </div>
-            <div className='wrapper-videos wrapper-video'>
-               <VideoDetailCard />
-            </div>
+            <div className='wrapper-videos'></div>
          </div>
       </>
    );

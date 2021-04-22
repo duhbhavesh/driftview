@@ -14,17 +14,20 @@
    }
 
    .sidebar-item-link {
-      padding: 1rem;
+      padding: 0.8rem;
    }
-
-   .sidebar-item-link a {
+   .sidebar-item-link:hover {
+      cursor: pointer;
+      background-color: #3c3c3c;
+   }
+   .sidebar-links a {
       color: #ffffff;
    }
 
-   .sidebar-item-link .fas {
+   .sidebar-links .fas {
       color: #909090;
    }
-   .sidebar-item-link .fas:active {
+   .sidebar-links .fas:active {
       color: #ffffff;
    }
 }
