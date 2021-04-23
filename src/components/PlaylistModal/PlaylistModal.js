@@ -1,4 +1,4 @@
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import { useData } from '../../context/DataContext';
 import { checkyPlaylistVideosID } from '../../utils/utils';
 import './PlaylistModal.css';
