@@ -40,7 +40,7 @@ export const PlaylistModal = ({ video, showModal, setShowModal }) => {
             id='modal-overlay'></div>
          <div className={showModal ? 'modal open' : 'modal'} id='modal'>
             <div className='modal-header'>
-               <h3 class='modal-title'>Add to Playlist</h3>
+               <h3 className='modal-title'>Add to Playlist</h3>
                <button
                   onClick={() => setShowModal(false)}
                   type='button'

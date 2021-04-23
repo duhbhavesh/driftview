@@ -20,7 +20,7 @@ export const History = () => {
                   {videoHistory.length > 0 ? (
                      <div className='video-list'>
                         {videoHistory.map((video) => (
-                           <div className='video-card'>
+                           <div key={video.id} className='video-card'>
                               <Link to={`/watch/${video.id}`}>
                                  <Card key={video.id} video={video} />
                               </Link>

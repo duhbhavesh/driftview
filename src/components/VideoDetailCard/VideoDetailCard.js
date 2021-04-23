@@ -49,7 +49,7 @@ export const VideoDetailCard = () => {
                   width='100%'
                   height='360px'
                   controls
-                  playing='true'
+                  playing={true}
                   url={`https://www.youtube.com/watch?v=${video.id}`}
                   onPlay={() => handleHistory()}
                />

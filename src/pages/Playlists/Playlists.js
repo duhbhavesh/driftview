@@ -18,11 +18,7 @@ export const Playlists = () => {
                   <div className='title'>Playlists</div>
                   <div className='playlist-video'>
                      {videoPlaylist.map((video) => {
-                        return (
-                           <>
-                              <Playlist current={video} />
-                           </>
-                        );
+                        return <Playlist key={video.id} current={video} />;
                      })}
                   </div>
                </div>

@@ -16,13 +16,11 @@ export const Explore = () => {
             <div className='wrapper-videos'>
                {videos.map((video) => {
                   return (
-                     <>
-                        <div className='video-card'>
-                           <Link to={`/watch/${video.id}`}>
-                              <VideoCard key={video.id} video={video} />
-                           </Link>
-                        </div>
-                     </>
+                     <div key={video.id} className='video-card'>
+                        <Link to={`/watch/${video.id}`}>
+                           <VideoCard key={video.id} video={video} />
+                        </Link>
+                     </div>
                   );
                })}
             </div>

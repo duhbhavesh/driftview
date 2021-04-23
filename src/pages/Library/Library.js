@@ -20,7 +20,7 @@ export const Library = () => {
                   {videoLiked.length > 0 ? (
                      <div className='video-list'>
                         {videoLiked.map((video) => (
-                           <div className='video-card'>
+                           <div key={video.id} className='video-card'>
                               <Link to={`/watch/${video.id}`}>
                                  <Card key={video.id} video={video} />
                               </Link>
@@ -39,7 +39,7 @@ export const Library = () => {
                   {videoWatchLater.length > 0 ? (
                      <div className='video-list'>
                         {videoWatchLater.map((video) => (
-                           <div className='video-card'>
+                           <div key={video.id} className='video-card'>
                               <Link to={`/watch/${video.id}`}>
                                  <Card key={video.id} video={video} />
                               </Link>

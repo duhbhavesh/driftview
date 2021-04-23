@@ -74,7 +74,7 @@ export const Header = () => {
                </form>
                <ul className='nav-items'>
                   {DesktopNavData.map((item) => (
-                     <li className='nav-item navbar-link'>
+                     <li key={item.index} className='nav-item navbar-link'>
                         <Link className='nav-item-link' to={item.link}>
                            <i className={item.iconClassName}></i>
                         </Link>

@@ -20,13 +20,11 @@ export const LikedVideos = () => {
                      <div className='video-list'>
                         {videoLiked.map((video) => {
                            return (
-                              <>
-                                 <div className='video-card'>
-                                    <Link to={`/watch/${video.id}`}>
-                                       <Card key={video.id} video={video} />
-                                    </Link>
-                                 </div>
-                              </>
+                              <div key={video.id} className='video-card'>
+                                 <Link to={`/watch/${video.id}`}>
+                                    <Card key={video.id} video={video} />
+                                 </Link>
+                              </div>
                            );
                         })}
                      </div>

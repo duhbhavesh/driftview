@@ -8,8 +8,8 @@ export const SidebarDesktop = () => {
          <nav className='sidebar-nav-md'>
             <ul className='sidebar-links'>
                {SidebarData.map((item) => (
-                  <Link to={item.link}>
-                     <li key={item.index} className='sidebar-item-link'>
+                  <Link key={item.index} to={item.link}>
+                     <li className='sidebar-item-link'>
                         <i className={item.iconClassName}></i>
                         <span className='sidebar-link'>{item.title}</span>
                      </li>
