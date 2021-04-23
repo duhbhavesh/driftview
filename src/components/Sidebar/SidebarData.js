@@ -13,21 +13,21 @@ export const SidebarData = [
    },
    {
       index: 3,
+      link: '/playlist',
+      title: 'Playlist',
+      iconClassName: 'fas fa-list',
+   },
+   {
+      index: 4,
       link: '/liked',
       title: 'Liked Videos',
       iconClassName: 'fas fa-heart',
    },
    {
-      index: 4,
+      index: 5,
       link: '/history',
       title: 'History',
       iconClassName: 'fas fa-history',
-   },
-   {
-      index: 5,
-      link: '/playlist',
-      title: 'Playlist',
-      iconClassName: 'fas fa-list',
    },
    {
       index: 6,

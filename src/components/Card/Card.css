@@ -1,1 +1,21 @@
+.video {
+   position: relative;
+}
 
+.video .btn {
+   display: block;
+}
+
+.video .btn-circle {
+   background-color: rgba(255, 255, 255, 0);
+   padding: 0;
+   font-size: 1rem;
+   border: none;
+   color: #3c3c3c;
+   width: 1.5rem;
+   height: 1.5rem;
+}
+
+.video .btn-circle:hover {
+   color: #ff1f21;
+}

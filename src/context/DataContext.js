@@ -8,6 +8,8 @@ const initialState = {
    videos: data,
    videoLiked: [],
    videoPlaylist: [{ name: 'My Playlist', id: [] }],
+   videoHistory: [],
+   videoWatchLater: [],
 };
 
 export const DataProvider = ({ children }) => {

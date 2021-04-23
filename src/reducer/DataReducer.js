@@ -4,6 +4,10 @@ const ADD_NEW_PLAYLIST = 'ADD_NEW_PLAYLIST';
 const DELETE_PLAYLIST = 'DELETE_PLAYLIST';
 const ADD_TO_PLAYLIST = 'ADD_TO_PLAYLIST';
 const REMOVE_FROM_PLAYLIST = 'REMOVE_FROM_PLAYLIST';
+const ADD_TO_HISTORY = 'ADD_TO_HISTORY';
+const DELETE_HISTORY = 'DELETE_HISTORY';
+const ADD_TO_WATCHLATER = 'ADD_TO_WATCHLATER';
+const REMOVE_FROM_WATCHLATER = 'REMOVE_FROM_WATCHLATER';
 
 export const DataReducer = (state, { type, payload }) => {
    switch (type) {
@@ -50,6 +54,22 @@ export const DataReducer = (state, { type, payload }) => {
             ...state,
             videoPlaylist: state.videoPlaylist.filter(
                (playlist) => playlist.name !== payload.name,
+            ),
+         };
+      case ADD_TO_HISTORY:
+         return { ...state, videoHistory: [...state.videoHistory, payload] };
+      case DELETE_HISTORY:
+         return { ...state, videoHistory: [] };
+      case ADD_TO_WATCHLATER:
+         return {
+            ...state,
+            videoWatchLater: [...state.videoWatchLater, payload],
+         };
+      case REMOVE_FROM_WATCHLATER:
+         return {
+            ...state,
+            videoWatchLater: state.videoWatchLater.filter(
+               (item) => item.id !== payload.id,
             ),
          };
       default:

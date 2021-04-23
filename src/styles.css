@@ -5,6 +5,7 @@ body {
    background-color: #202020;
 }
 
+/*Explore*/
 .wrapper {
    display: flex;
    flex-direction: column;
@@ -14,6 +15,39 @@ body {
    display: flex;
    width: 100%;
    flex-direction: column;
+}
+
+/*Card*/
+.title {
+   font-weight: 600;
+   font-size: 1.5rem;
+   text-align: center;
+   margin: 1rem;
+}
+
+.wrapper-video-list {
+   align-self: flex-start;
+   margin: 0 auto;
+   margin-bottom: 1.5rem;
+   max-width: 90%;
+   width: 90%;
+}
+
+.video-list {
+   display: flex;
+   flex-wrap: wrap;
+   margin: 0 auto;
+   margin-top: 1rem;
+   background-color: #3c3c3c;
+   border-radius: 0.2rem;
+}
+
+.empty {
+   text-align: center;
+   margin-top: 1rem;
+   padding-top: 2rem;
+   background-color: #3c3c3c;
+   height: 200px;
 }
 
 @media (min-width: 840px) {

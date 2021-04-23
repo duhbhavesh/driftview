@@ -1,7 +1,7 @@
 import { useData } from '../../context/DataContext';
 import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import { checkLikes } from '../../utils/utils';
+import { checkLikes, checkWatchLater, checkHistory } from '../../utils/utils';
 import { PlaylistModal } from '../../components/PlaylistModal/PlaylistModal';
 import './VideoDetailCard.css';
 import { useState } from 'react';
@@ -11,7 +11,7 @@ export const VideoDetailCard = () => {
    const { videos } = state;
    const { videoID } = useParams();
 
-   const video = videos.find((one) => one.id === videoID);
+   const video = videos.find((item) => item.id === videoID);
 
    const [showModal, setShowModal] = useState(false);
 
@@ -25,6 +25,22 @@ export const VideoDetailCard = () => {
 
    const handlePlaylist = () => setShowModal(true);
 
+   const handleWatchLater = () => {
+      if (checkWatchLater(state, video).length === 0) {
+         return dispatch({ type: 'ADD_TO_WATCHLATER', payload: video });
+      } else {
+         return null;
+      }
+   };
+
+   const handleHistory = () => {
+      if (checkHistory(state, video)) {
+         return null;
+      } else {
+         return dispatch({ type: 'ADD_TO_HISTORY', payload: video });
+      }
+   };
+
    return (
       <>
          <div className='video-detail-card'>
@@ -35,6 +51,7 @@ export const VideoDetailCard = () => {
                   controls
                   playing='true'
                   url={`https://www.youtube.com/watch?v=${video.id}`}
+                  onPlay={() => handleHistory()}
                />
             </div>
             <div className='video-player-details'>
@@ -57,7 +74,9 @@ export const VideoDetailCard = () => {
                         className='video-action'>
                         <i className='fas fa-list'></i>
                      </button>
-                     <button className='video-action'>
+                     <button
+                        onClick={() => handleWatchLater()}
+                        className='video-action'>
                         <i className='fas fa-clock'></i>
                      </button>
                      <PlaylistModal

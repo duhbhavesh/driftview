@@ -132,7 +132,7 @@ const data = [
       publishedDate: 'Feb 27, 2020',
    },
    {
-      id: 'X7_SmT1yi4',
+      id: '-X7_SmT1yi4',
       title: 'Why EVERY photographer should be using LIGHTROOM!',
       description:
          'Today we are diving in to LIGHTROOM! Lightroom is massive. I tried to make this quick but, there is SO much to go over and Sao many incredible tips and tricks to really take your photos to the next level. ',

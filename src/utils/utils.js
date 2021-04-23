@@ -9,3 +9,11 @@ export const checkyPlaylistVideosID = (itemID, videoID) => {
       return true;
    }
 };
+
+export const checkWatchLater = (state, video) => {
+   return state.videoWatchLater.filter((item) => item.id === video.id);
+};
+
+export const checkHistory = (state, video) => {
+   return !!state.videoHistory.find((item) => item.id === video.id);
+};
