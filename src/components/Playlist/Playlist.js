@@ -18,11 +18,8 @@ export const Playlist = ({ current }) => {
                </button>
             </div>
             <div className='playlist-box'>
-               {current.id.length === 0 && (
-                  <div className='playlist-empty'>Playlist is Empty</div>
-               )}
-               <div className='playlist-videos'>
-                  {current.id.length !== 0 && (
+               {current.id.length > 0 ? (
+                  <div className='playlist-videos'>
                      <div className='playlist-lists'>
                         {current.id.map((playlist) => {
                            return (
@@ -32,8 +29,10 @@ export const Playlist = ({ current }) => {
                            );
                         })}
                      </div>
-                  )}
-               </div>
+                  </div>
+               ) : (
+                  <div className='playlist-empty'>Playlist is Empty</div>
+               )}
             </div>
          </div>
       </>
