@@ -6,7 +6,7 @@ import './Library.css';
 
 export const Library = () => {
    const { state } = useData();
-   const { videoLiked, videoWatchLater } = state;
+   const { videoLiked, videoWatchLater, videoHistory } = state;
 
    return (
       <>
@@ -39,6 +39,23 @@ export const Library = () => {
                   {videoWatchLater.length > 0 ? (
                      <div className='video-list'>
                         {videoWatchLater.map((video) => (
+                           <div key={video.id} className='video-card'>
+                              <Link to={`/watch/${video.id}`}>
+                                 <Card key={video.id} video={video} />
+                              </Link>
+                           </div>
+                        ))}
+                     </div>
+                  ) : (
+                     <div className='empty'>This list has no videos.</div>
+                  )}
+               </div>
+
+               <div className='wrapper-video-list'>
+                  <div className='title'>History</div>
+                  {videoHistory.length > 0 ? (
+                     <div className='video-list'>
+                        {videoHistory.map((video) => (
                            <div key={video.id} className='video-card'>
                               <Link to={`/watch/${video.id}`}>
                                  <Card key={video.id} video={video} />

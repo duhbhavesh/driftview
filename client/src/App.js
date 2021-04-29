@@ -1,5 +1,6 @@
 import './styles.css';
 import { Routes, Route } from 'react-router-dom';
+import { Toast } from './components/Toast/Toast';
 import { Header } from './components/Header/Header';
 import { Explore } from './pages/Explore/Explore';
 import { VideoDetail } from './pages/VideoDetail/VideoDetail';
@@ -13,6 +14,7 @@ function App() {
    return (
       <div className='App'>
          <Header />
+         <Toast />
          <Routes>
             <Route path='/' element={<Explore />} />
             <Route path='/home' element={<Explore />} />

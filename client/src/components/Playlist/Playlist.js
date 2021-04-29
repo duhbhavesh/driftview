@@ -1,9 +1,12 @@
+import toast from 'react-hot-toast';
 import { useData } from '../../context/DataContext';
 import { PlaylistCard } from '../PlaylistCard/PlaylistCard';
 import './Playlist.css';
 
 export const Playlist = ({ current }) => {
    const { dispatch } = useData();
+
+   const notify = (message) => toast.success(message);
    return (
       <>
          <div className='playlist'>
@@ -11,9 +14,10 @@ export const Playlist = ({ current }) => {
                <div className='playlist-title'>{current.name}</div>
                <button
                   className='btn btn-playlist'
-                  onClick={() =>
-                     dispatch({ type: 'DELETE_PLAYLIST', payload: current })
-                  }>
+                  onClick={() => {
+                     notify('Playlist Deleted');
+                     dispatch({ type: 'DELETE_PLAYLIST', payload: current });
+                  }}>
                   <i className='fas fa-trash-alt'></i>
                </button>
             </div>

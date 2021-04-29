@@ -5,6 +5,7 @@ import { checkLikes, checkWatchLater, checkHistory } from '../../utils/utils';
 import { PlaylistModal } from '../../components/PlaylistModal/PlaylistModal';
 import './VideoDetailCard.css';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export const VideoDetailCard = () => {
    const { state, dispatch } = useData();
@@ -13,12 +14,16 @@ export const VideoDetailCard = () => {
 
    const video = videos.find((item) => item.id === videoID);
 
+   const notify = (message) => toast.success(message);
+
    const [showModal, setShowModal] = useState(false);
 
    const handleLikedVideo = () => {
       if (checkLikes(state, video).length === 0) {
+         notify('Added to Liked Videos');
          return dispatch({ type: 'ADD_TO_LIKED', payload: video });
       } else {
+         notify('Removed from Liked Videos');
          return dispatch({ type: 'REMOVE_FROM_LIKED', payload: video });
       }
    };
@@ -27,9 +32,11 @@ export const VideoDetailCard = () => {
 
    const handleWatchLater = () => {
       if (checkWatchLater(state, video).length === 0) {
+         notify('Added to Watch Later');
          return dispatch({ type: 'ADD_TO_WATCHLATER', payload: video });
       } else {
-         return null;
+         notify('Removed from Watch Later');
+         return dispatch({ type: 'REMOVE_FROM_WATCHLATER', payload: video });
       }
    };
 
@@ -77,7 +84,12 @@ export const VideoDetailCard = () => {
                      <button
                         onClick={() => handleWatchLater()}
                         className='video-action'>
-                        <i className='fas fa-clock'></i>
+                        <i
+                           className={
+                              checkWatchLater(state, video).length === 0
+                                 ? 'far fa-clock'
+                                 : 'fas fa-clock'
+                           }></i>
                      </button>
                      <PlaylistModal
                         video={video}
