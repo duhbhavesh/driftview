@@ -5,7 +5,6 @@ import './Playlist.css';
 
 export const Playlist = ({ current }) => {
    const { dispatch } = useData();
-
    const notify = (message) => toast.success(message);
    return (
       <>

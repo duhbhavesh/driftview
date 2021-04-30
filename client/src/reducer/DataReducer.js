@@ -5,6 +5,7 @@ const DELETE_PLAYLIST = 'DELETE_PLAYLIST';
 const ADD_TO_PLAYLIST = 'ADD_TO_PLAYLIST';
 const REMOVE_FROM_PLAYLIST = 'REMOVE_FROM_PLAYLIST';
 const ADD_TO_HISTORY = 'ADD_TO_HISTORY';
+const REMOVE_FROM_HISTORY = 'REMOVE_FROM_HISTORY';
 const DELETE_HISTORY = 'DELETE_HISTORY';
 const ADD_TO_WATCHLATER = 'ADD_TO_WATCHLATER';
 const REMOVE_FROM_WATCHLATER = 'REMOVE_FROM_WATCHLATER';
@@ -58,6 +59,13 @@ export const DataReducer = (state, { type, payload }) => {
          };
       case ADD_TO_HISTORY:
          return { ...state, videoHistory: [...state.videoHistory, payload] };
+      case REMOVE_FROM_HISTORY:
+         return {
+            ...state,
+            videoHistory: state.videoHistory.filter(
+               (item) => item.id !== payload.id,
+            ),
+         };
       case DELETE_HISTORY:
          return { ...state, videoHistory: [] };
       case ADD_TO_WATCHLATER:

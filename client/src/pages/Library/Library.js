@@ -5,7 +5,7 @@ import { Card } from '../../components/Card/Card';
 import './Library.css';
 
 export const Library = () => {
-   const { state } = useData();
+   const { state, dispatch } = useData();
    const { videoLiked, videoWatchLater, videoHistory } = state;
 
    return (
@@ -21,6 +21,16 @@ export const Library = () => {
                      <div className='video-list'>
                         {videoLiked.map((video) => (
                            <div key={video.id} className='video-card'>
+                              <div
+                                 onClick={() =>
+                                    dispatch({
+                                       type: 'REMOVE_FROM_LIKED',
+                                       payload: video,
+                                    })
+                                 }
+                                 className='video-remove'>
+                                 &times;
+                              </div>
                               <Link to={`/watch/${video.id}`}>
                                  <Card key={video.id} video={video} />
                               </Link>
@@ -40,6 +50,16 @@ export const Library = () => {
                      <div className='video-list'>
                         {videoWatchLater.map((video) => (
                            <div key={video.id} className='video-card'>
+                              <div
+                                 onClick={() =>
+                                    dispatch({
+                                       type: 'REMOVE_FROM_WATCHLATER',
+                                       payload: video,
+                                    })
+                                 }
+                                 className='video-remove'>
+                                 &times;
+                              </div>
                               <Link to={`/watch/${video.id}`}>
                                  <Card key={video.id} video={video} />
                               </Link>
@@ -57,6 +77,16 @@ export const Library = () => {
                      <div className='video-list'>
                         {videoHistory.map((video) => (
                            <div key={video.id} className='video-card'>
+                              <div
+                                 onClick={() =>
+                                    dispatch({
+                                       type: 'REMOVE_FROM_HISTORY',
+                                       payload: video,
+                                    })
+                                 }
+                                 className='video-remove'>
+                                 &times;
+                              </div>
                               <Link to={`/watch/${video.id}`}>
                                  <Card key={video.id} video={video} />
                               </Link>

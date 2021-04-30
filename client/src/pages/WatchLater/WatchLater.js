@@ -5,7 +5,7 @@ import { useData } from '../../context/DataContext';
 import './WatchLater.css';
 
 export const WatchLater = () => {
-   const { state } = useData();
+   const { state, dispatch } = useData();
    const { videoWatchLater } = state;
 
    return (
@@ -21,6 +21,16 @@ export const WatchLater = () => {
                      <div className='video-list'>
                         {videoWatchLater.map((video) => (
                            <div key={video.id} className='video-card'>
+                              <div
+                                 onClick={() =>
+                                    dispatch({
+                                       type: 'REMOVE_FROM_WATCHLATER',
+                                       payload: video,
+                                    })
+                                 }
+                                 className='video-remove'>
+                                 &times;
+                              </div>
                               <Link to={`/watch/${video.id}`}>
                                  <Card key={video.id} video={video} />
                               </Link>

@@ -5,8 +5,9 @@ import { SidebarDesktop } from '../../components/Sidebar/SidebarDesktop';
 import './LikedVideos.css';
 
 export const LikedVideos = () => {
-   const { state } = useData();
+   const { state, dispatch } = useData();
    const { videoLiked } = state;
+
    return (
       <>
          <div className='wrapper'>
@@ -21,6 +22,16 @@ export const LikedVideos = () => {
                         {videoLiked.map((video) => {
                            return (
                               <div key={video.id} className='video-card'>
+                                 <div
+                                    onClick={() =>
+                                       dispatch({
+                                          type: 'REMOVE_FROM_LIKED',
+                                          payload: video,
+                                       })
+                                    }
+                                    className='video-remove'>
+                                    &times;
+                                 </div>
                                  <Link to={`/watch/${video.id}`}>
                                     <Card key={video.id} video={video} />
                                  </Link>
