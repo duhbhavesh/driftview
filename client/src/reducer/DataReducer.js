@@ -1,3 +1,7 @@
+const SET_VIDEOS = 'SET_VIDEOS';
+const SET_VIDEOS_LIKED = 'SET_VIDEOS_LIKED';
+const SET_VIDEOS_WATCHLATER = 'SET_VIDEOS_WATCHLATER';
+const SET_VIDEOS_HISTORY = 'SET_VIDEOS_HISTORY';
 const ADD_TO_LIKED = 'ADD_TO_LIKED';
 const REMOVE_FROM_LIKED = 'REMOVE_FROM_LIKED';
 const ADD_NEW_PLAYLIST = 'ADD_NEW_PLAYLIST';
@@ -12,26 +16,40 @@ const REMOVE_FROM_WATCHLATER = 'REMOVE_FROM_WATCHLATER';
 
 export const DataReducer = (state, { type, payload }) => {
    switch (type) {
+      case SET_VIDEOS:
+         return { ...state, videos: payload };
+      case SET_VIDEOS_LIKED:
+         return { ...state, videosLiked: payload };
+      case SET_VIDEOS_WATCHLATER:
+         return { ...state, videosWatchLater: payload };
+      case SET_VIDEOS_HISTORY:
+         return { ...state, videosHistory: payload };
       case ADD_TO_LIKED:
-         return { ...state, videoLiked: [...state.videoLiked, payload] };
+         return { ...state, videosLiked: [...state.videosLiked, payload] };
       case REMOVE_FROM_LIKED:
          return {
             ...state,
-            videoLiked: state.videoLiked.filter(
+            videosLiked: state.videosLiked.filter(
                (item) => item.id !== payload.id,
             ),
          };
       case ADD_NEW_PLAYLIST:
          return {
             ...state,
-            videoPlaylist: [...state.videoPlaylist, { name: payload, id: [] }],
+            videosPlaylist: [
+               ...state.videosPlaylist,
+               { name: payload, id: [] },
+            ],
          };
       case ADD_TO_PLAYLIST:
          return {
             ...state,
-            videoPlaylist: state.videoPlaylist.map((playlist) => {
+            videosPlaylist: state.videosPlaylist.map((playlist) => {
                if (playlist.name === payload.name) {
-                  return { ...playlist, id: [...playlist.id, payload.id] };
+                  return {
+                     ...playlist,
+                     id: [...playlist.id, payload.id],
+                  };
                }
                return playlist;
             }),
@@ -39,7 +57,7 @@ export const DataReducer = (state, { type, payload }) => {
       case REMOVE_FROM_PLAYLIST:
          return {
             ...state,
-            videoPlaylist: state.videoPlaylist.map((playlist) => {
+            videosPlaylist: state.videosPlaylist.map((playlist) => {
                if (playlist.name === payload.name) {
                   return {
                      ...playlist,
@@ -53,30 +71,30 @@ export const DataReducer = (state, { type, payload }) => {
       case DELETE_PLAYLIST:
          return {
             ...state,
-            videoPlaylist: state.videoPlaylist.filter(
+            videosPlaylist: state.videosPlaylist.filter(
                (playlist) => playlist.name !== payload.name,
             ),
          };
       case ADD_TO_HISTORY:
-         return { ...state, videoHistory: [...state.videoHistory, payload] };
+         return { ...state, videosHistory: [...state.videosHistory, payload] };
       case REMOVE_FROM_HISTORY:
          return {
             ...state,
-            videoHistory: state.videoHistory.filter(
+            videosHistory: state.videosHistory.filter(
                (item) => item.id !== payload.id,
             ),
          };
       case DELETE_HISTORY:
-         return { ...state, videoHistory: [] };
+         return { ...state, videosHistory: [] };
       case ADD_TO_WATCHLATER:
          return {
             ...state,
-            videoWatchLater: [...state.videoWatchLater, payload],
+            videosWatchLater: [...state.videosWatchLater, payload],
          };
       case REMOVE_FROM_WATCHLATER:
          return {
             ...state,
-            videoWatchLater: state.videoWatchLater.filter(
+            videosWatchLater: state.videosWatchLater.filter(
                (item) => item.id !== payload.id,
             ),
          };

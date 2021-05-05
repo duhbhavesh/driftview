@@ -3,10 +3,11 @@ import { useData } from '../../context/DataContext';
 import { Card } from '../../components/Card/Card';
 import { Link } from 'react-router-dom';
 import './History.css';
+import { handleRemoveFromHistory } from '../../utils/requests';
 
 export const History = () => {
    const { state, dispatch } = useData();
-   const { videoHistory } = state;
+   const { videosHistory } = state;
 
    const handleHistory = () => {
       return dispatch({ type: 'DELETE_HISTORY' });
@@ -21,28 +22,25 @@ export const History = () => {
             <div className='wrapper-videos'>
                <div className='wrapper-video-list'>
                   <div className='title'>History</div>
-                  {videoHistory.length === 0 ? (
+                  {videosHistory.length === 0 ? (
                      <div></div>
                   ) : (
                      <div onClick={handleHistory} className='history-clear'>
                         Clear History
                      </div>
                   )}
-                  {videoHistory.length > 0 ? (
+                  {videosHistory.length > 0 ? (
                      <div className='video-list'>
-                        {videoHistory.map((video) => (
+                        {videosHistory.map((video) => (
                            <div key={video.id} className='video-card'>
                               <div
                                  onClick={() =>
-                                    dispatch({
-                                       type: 'REMOVE_FROM_HISTORY',
-                                       payload: video,
-                                    })
+                                    handleRemoveFromHistory({ dispatch, video })
                                  }
                                  className='video-remove'>
                                  &times;
                               </div>
-                              <Link to={`/watch/${video.id}`}>
+                              <Link to={`/watch/${video.watchID}`}>
                                  <Card key={video.id} video={video} />
                               </Link>
                            </div>

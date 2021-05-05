@@ -5,7 +5,7 @@ import './Playlists.css';
 
 export const Playlists = () => {
    const { state } = useData();
-   const { videoPlaylist } = state;
+   const { videosPlaylist } = state;
 
    return (
       <>
@@ -17,7 +17,7 @@ export const Playlists = () => {
                <div className='wrapper-playlist'>
                   <div className='title'>Playlists</div>
                   <div className='playlist-video'>
-                     {videoPlaylist.map((video) => {
+                     {videosPlaylist.map((video) => {
                         return <Playlist key={video.id} current={video} />;
                      })}
                   </div>

@@ -1,5 +1,9 @@
 import './Home.css';
 
 export const Home = () => {
-   return <></>;
+   return (
+      <>
+         <ul>HOME</ul>
+      </>
+   );
 };

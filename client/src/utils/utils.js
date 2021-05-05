@@ -1,5 +1,5 @@
 export const checkLikes = (state, video) => {
-   return state.videoLiked.filter((item) => item.id === video.id);
+   return state.videosLiked.filter((item) => item.id === video.id);
 };
 
 export const checkyPlaylistVideosID = (itemID, videoID) => {
@@ -11,9 +11,9 @@ export const checkyPlaylistVideosID = (itemID, videoID) => {
 };
 
 export const checkWatchLater = (state, video) => {
-   return state.videoWatchLater.filter((item) => item.id === video.id);
+   return state.videosWatchLater.filter((item) => item.id === video.id);
 };
 
 export const checkHistory = (state, video) => {
-   return !!state.videoHistory.find((item) => item.id === video.id);
+   return !!state.videosHistory.find((item) => item.id === video.id);
 };

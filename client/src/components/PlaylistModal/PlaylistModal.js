@@ -6,7 +6,7 @@ import './PlaylistModal.css';
 
 export const PlaylistModal = ({ video, showModal, setShowModal }) => {
    const { state, dispatch } = useData();
-   const { videoPlaylist } = state;
+   const { videosPlaylist } = state;
    const [inputValue, setInputValue] = useState('');
 
    const notify = (message) => toast.success(message);
@@ -55,7 +55,7 @@ export const PlaylistModal = ({ video, showModal, setShowModal }) => {
                </button>
             </div>
             <div className='modal-options'>
-               {videoPlaylist.map((item, index) => {
+               {videosPlaylist.map((item, index) => {
                   return (
                      <div className='modal-option' key={index}>
                         <label

@@ -3,10 +3,11 @@ import { Card } from '../../components/Card/Card';
 import { Link } from 'react-router-dom';
 import { SidebarDesktop } from '../../components/Sidebar/SidebarDesktop';
 import './LikedVideos.css';
+import { handleRemoveLike } from '../../utils/requests';
 
 export const LikedVideos = () => {
    const { state, dispatch } = useData();
-   const { videoLiked } = state;
+   const { videosLiked } = state;
 
    return (
       <>
@@ -17,22 +18,19 @@ export const LikedVideos = () => {
             <div className='wrapper-videos'>
                <div className='wrapper-video-list'>
                   <div className='title'>Liked Videos</div>
-                  {videoLiked.length > 0 ? (
+                  {videosLiked.length > 0 ? (
                      <div className='video-list'>
-                        {videoLiked.map((video) => {
+                        {videosLiked.map((video) => {
                            return (
                               <div key={video.id} className='video-card'>
                                  <div
                                     onClick={() =>
-                                       dispatch({
-                                          type: 'REMOVE_FROM_LIKED',
-                                          payload: video,
-                                       })
+                                       handleRemoveLike({ dispatch, video })
                                     }
                                     className='video-remove'>
                                     &times;
                                  </div>
-                                 <Link to={`/watch/${video.id}`}>
+                                 <Link to={`/watch/${video.watchID}`}>
                                     <Card key={video.id} video={video} />
                                  </Link>
                               </div>
