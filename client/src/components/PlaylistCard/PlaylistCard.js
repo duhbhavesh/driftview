@@ -11,7 +11,7 @@ export const PlaylistCard = ({ current }) => {
    return (
       <>
          <div className='video-playlist-card'>
-            <Link to={`/watch/${currentVideo.id}`} key={currentVideo.id}>
+            <Link to={`/watch/${currentVideo.watchID}`} key={currentVideo.id}>
                <div className='video-thumb'>
                   <img src={currentVideo.thumbnail} alt='' />
                </div>

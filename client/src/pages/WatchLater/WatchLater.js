@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom';
 import { Card } from '../../components/Card/Card';
 import { SidebarDesktop } from '../../components/Sidebar/SidebarDesktop';
 import { useData } from '../../context/DataContext';
+import { handleRemoveWatchLater } from '../../utils/requests';
 import './WatchLater.css';
 
 export const WatchLater = () => {
-   const { state } = useData();
-   const { videoWatchLater } = state;
+   const { state, dispatch } = useData();
+   const { videosWatchLater } = state;
 
    return (
       <>
@@ -17,11 +18,18 @@ export const WatchLater = () => {
             <div className='wrapper-videos'>
                <div className='wrapper-video-list'>
                   <div className='title'>Watch Later</div>
-                  {videoWatchLater.length > 0 ? (
+                  {videosWatchLater.length > 0 ? (
                      <div className='video-list'>
-                        {videoWatchLater.map((video) => (
+                        {videosWatchLater.map((video) => (
                            <div key={video.id} className='video-card'>
-                              <Link to={`/watch/${video.id}`}>
+                              <div
+                                 onClick={() =>
+                                    handleRemoveWatchLater({ dispatch, video })
+                                 }
+                                 className='video-remove'>
+                                 &times;
+                              </div>
+                              <Link to={`/watch/${video.watchID}`}>
                                  <Card key={video.id} video={video} />
                               </Link>
                            </div>

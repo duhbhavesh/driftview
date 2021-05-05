@@ -17,7 +17,7 @@ export const Explore = () => {
                {videos.map((video) => {
                   return (
                      <div key={video.id} className='video-card'>
-                        <Link to={`/watch/${video.id}`}>
+                        <Link to={`/watch/${video.watchID}`}>
                            <VideoCard key={video.id} video={video} />
                         </Link>
                      </div>
