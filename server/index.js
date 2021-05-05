@@ -7,7 +7,7 @@ const { initializeDBConnection } = require('./db/db.connect');
 const { PopulateVideos } = require('./models/video');
 const videosRouter = require('./routes/videos');
 const videosLikedRouter = require('./routes/liked');
-const videosWatchLaterRouter = require('./routes/watchlater');
+const videosWatchLaterRouter = require('./routes/watchLater');
 const videosHistoryRouter = require('./routes/history');
 const videosPlaylistRouter = require('./routes/playlist');
 
