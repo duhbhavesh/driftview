@@ -15,7 +15,6 @@ const { errorHandler } = require('./middlewares/error-handler');
 const { routeNotFound } = require('./middlewares/route-not-found');
 
 const app = express();
-const PORT = 3000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -36,6 +35,7 @@ app.use('/playlist', videosPlaylistRouter);
 app.use(routeNotFound);
 app.use(errorHandler);
 
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
    console.log(`Server Listening on PORT ${PORT}`);
 });
