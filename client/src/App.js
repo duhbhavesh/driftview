@@ -29,9 +29,7 @@ function App() {
             console.log(err);
          }
       })();
-   }, [dispatch]);
 
-   useEffect(() => {
       (async () => {
          try {
             const {
@@ -47,9 +45,7 @@ function App() {
             console.log(err);
          }
       })();
-   }, [dispatch]);
 
-   useEffect(() => {
       (async () => {
          try {
             const {
