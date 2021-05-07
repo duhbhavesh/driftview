@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useData } from '../../context/DataContext';
+import { useData } from '../../../context/DataContext';
 import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import { LikeButton } from '../Buttons/LikeButton';
-import { WatchLaterButton } from '../Buttons/WatchLaterButton';
-import { PlaylistModal } from '../../components/PlaylistModal/PlaylistModal';
-import { handleAddToHistory } from '../../utils/requests';
+import { LikeButton } from '../../Buttons/LikeButton';
+import { WatchLaterButton } from '../../Buttons/WatchLaterButton';
+import { PlaylistModal } from '../../PlaylistModal/PlaylistModal';
+import { handleAddToHistory } from '../../../utils/requests';
 import './VideoDetailCard.css';
 
 export const VideoDetailCard = () => {

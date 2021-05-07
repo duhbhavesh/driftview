@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useData } from '../../context/DataContext';
+import { useData } from '../../../context/DataContext';
 import './PlaylistCard.css';
 
 export const PlaylistCard = ({ current }) => {
@@ -13,7 +13,7 @@ export const PlaylistCard = ({ current }) => {
          <div className='video-playlist-card'>
             <Link to={`/watch/${currentVideo.watchID}`} key={currentVideo.id}>
                <div className='video-thumb'>
-                  <img src={currentVideo.thumbnail} alt='' />
+                  <img src={currentVideo.thumbnail} alt={currentVideo.title} />
                </div>
                <div className='video-title'>{currentVideo.title}</div>
             </Link>

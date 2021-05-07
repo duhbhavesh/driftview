@@ -5,7 +5,7 @@ export const Card = ({ video }) => {
       <>
          <div className='video'>
             <div className='video-thumb'>
-               <img src={video.thumbnail} alt='' />
+               <img src={video.thumbnail} alt={video.title} />
             </div>
             <div className='video-details'>
                <div className='video-info'>

@@ -1,7 +1,6 @@
 import { Playlist } from '../../components/Playlist/Playlist';
 import { SidebarDesktop } from '../../components/Sidebar/SidebarDesktop';
 import { useData } from '../../context/DataContext';
-import './Playlists.css';
 
 export const Playlists = () => {
    const { state } = useData();

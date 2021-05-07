@@ -1,15 +1,15 @@
 import { SidebarDesktop } from '../../components/Sidebar/SidebarDesktop';
-import { VideoDetailCard } from '../../components/Cards/VideoDetailCard/VideoDetailCard';
+import { LikedVideos } from '../../components/Sections/LikedVideos';
 
-export const VideoDetail = () => {
+export const Liked = () => {
    return (
       <>
          <div className='wrapper'>
             <div className='wrapper-sidebar'>
                <SidebarDesktop />
             </div>
-            <div className='wrapper-videos wrapper-video'>
-               <VideoDetailCard />
+            <div className='wrapper-videos'>
+               <LikedVideos />
             </div>
          </div>
       </>

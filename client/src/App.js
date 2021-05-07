@@ -6,7 +6,7 @@ import { Toast } from './components/Toast/Toast';
 import { Header } from './components/Header/Header';
 import { Explore } from './pages/Explore/Explore';
 import { VideoDetail } from './pages/VideoDetail/VideoDetail';
-import { LikedVideos } from './pages/LikedVideos/LikedVideos';
+import { Liked } from './pages/Liked/Liked';
 import { History } from './pages/History/History';
 import { Playlists } from './pages/Playlists/Playlists';
 import { WatchLater } from './pages/WatchLater/WatchLater';
@@ -69,7 +69,7 @@ function App() {
             <Route path='/home' element={<Explore />} />
             <Route path='/explore' element={<Explore />} />
             <Route path='/watch/:videoID' element={<VideoDetail />} />
-            <Route path='/liked' element={<LikedVideos />} />
+            <Route path='/liked' element={<Liked />} />
             <Route path='/history' element={<History />} />
             <Route path='/playlist' element={<Playlists />} />
             <Route path='/watchlater' element={<WatchLater />} />
