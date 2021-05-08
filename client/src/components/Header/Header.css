@@ -13,7 +13,7 @@
 .navbar-sm {
    position: fixed;
    width: 100%;
-   z-index: 15;
+   z-index: 2;
    background-color: #2d3133;
 }
 
@@ -31,6 +31,6 @@
    .navbar-md {
       position: fixed;
       width: 100%;
-      z-index: 15;
+      z-index: 2;
    }
 }

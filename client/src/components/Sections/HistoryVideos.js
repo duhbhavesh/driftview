@@ -15,9 +15,7 @@ export const HistoryVideos = () => {
       <>
          <div className='wrapper-video-list'>
             <div className='title'>History</div>
-            {videosHistory.length === 0 ? (
-               <div></div>
-            ) : (
+            {videosHistory.length === 0 && (
                <div onClick={handleHistory} className='history-clear'>
                   Clear History
                </div>
