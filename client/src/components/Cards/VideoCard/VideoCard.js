@@ -5,14 +5,14 @@ export const VideoCard = ({ video }) => {
       <>
          <div className='video'>
             <div className='video-thumb'>
-               <img src={video.thumbnail} alt='' />
+               <img src={video.thumbnail} alt={video.title} />
             </div>
             <div className='video-details'>
                <div className='video-avatar'>
                   <img
                      className='video-avatar-img'
                      src={video.channelAvatar}
-                     alt=''
+                     alt={video.channelName}
                   />
                </div>
                <div className='video-info'>

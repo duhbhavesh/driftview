@@ -11,7 +11,6 @@ export const Header = () => {
    return (
       <>
          <div className='container-nav'>
-            {/* Mobile Nav */}
             <nav className='navbar-sm'>
                <div className='navbar'>
                   <ul className='nav-items'>
@@ -52,7 +51,6 @@ export const Header = () => {
                </form>
             </nav>
 
-            {/* Desktop Nav */}
             <nav className='navbar navbar-md'>
                <Link to='/'>
                   <a
@@ -84,7 +82,6 @@ export const Header = () => {
             </nav>
          </div>
 
-         {/* Mobile Sidebar */}
          <SidebarMobile
             showSidebar={showSidebar}
             setShowSidebar={setShowSidebar}

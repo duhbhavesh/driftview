@@ -1,6 +1,6 @@
 import toast from 'react-hot-toast';
 import { useData } from '../../context/DataContext';
-import { PlaylistCard } from '../PlaylistCard/PlaylistCard';
+import { PlaylistCard } from '../Cards/PlaylistCard/PlaylistCard';
 import './Playlist.css';
 
 export const Playlist = ({ current }) => {

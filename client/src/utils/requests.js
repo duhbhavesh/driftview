@@ -19,7 +19,7 @@ export const handleAddRemoveLike = async ({
 }) => {
    if (checkLikes(state, video).length === 0) {
       try {
-         const { status } = await axios({
+         await axios({
             method: 'POST',
             url: `https://driftview-backend.duhbhavesh.repl.co/liked`,
             data: {
@@ -27,23 +27,19 @@ export const handleAddRemoveLike = async ({
             },
          });
 
-         if (status === 200 || status === 201) {
-            dispatch({ type: 'ADD_TO_LIKED', payload: video });
-         }
+         dispatch({ type: 'ADD_TO_LIKED', payload: video });
          notify('Added to Liked Videos');
       } catch (err) {
          console.log(err);
       }
    } else {
       try {
-         const { status } = await axios({
+         await axios({
             method: 'DELETE',
             url: `https://driftview-backend.duhbhavesh.repl.co/liked/${video.id}`,
          });
 
-         if (status === 200 || status === 201) {
-            dispatch({ type: 'REMOVE_FROM_LIKED', payload: video });
-         }
+         dispatch({ type: 'REMOVE_FROM_LIKED', payload: video });
          notify('Removed from Liked Videos');
       } catch (err) {
          console.log(err);
@@ -53,14 +49,12 @@ export const handleAddRemoveLike = async ({
 
 export const handleRemoveLike = async ({ dispatch, video }) => {
    try {
-      const { status } = await axios({
+      await axios({
          method: 'DELETE',
          url: `https://driftview-backend.duhbhavesh.repl.co/liked/${video.id}`,
       });
 
-      if (status === 200 || status === 201) {
-         dispatch({ type: 'REMOVE_FROM_LIKED', payload: video });
-      }
+      dispatch({ type: 'REMOVE_FROM_LIKED', payload: video });
    } catch (err) {
       console.log(err);
    }
@@ -74,7 +68,7 @@ export const handleAddRemoveWatchLater = async ({
 }) => {
    if (checkWatchLater(state, video).length === 0) {
       try {
-         const { status } = await axios({
+         await axios({
             method: 'POST',
             url: `https://driftview-backend.duhbhavesh.repl.co/watchlater`,
             data: {
@@ -82,9 +76,7 @@ export const handleAddRemoveWatchLater = async ({
             },
          });
 
-         if (status === 200 || status === 201) {
-            dispatch({ type: 'ADD_TO_WATCHLATER', payload: video });
-         }
+         dispatch({ type: 'ADD_TO_WATCHLATER', payload: video });
          notify('Added to Watch Later');
       } catch (err) {
          console.log(err);
@@ -108,14 +100,12 @@ export const handleAddRemoveWatchLater = async ({
 
 export const handleRemoveWatchLater = async ({ dispatch, video }) => {
    try {
-      const { status } = await axios({
+      await axios({
          method: 'DELETE',
          url: `https://driftview-backend.duhbhavesh.repl.co/watchlater/${video.id}`,
       });
 
-      if (status === 200 || status === 201) {
-         dispatch({ type: 'REMOVE_FROM_WATCHLATER', payload: video });
-      }
+      dispatch({ type: 'REMOVE_FROM_WATCHLATER', payload: video });
    } catch (err) {
       console.log(err);
    }
@@ -126,7 +116,7 @@ export const handleAddToHistory = async ({ state, dispatch, video }) => {
       return null;
    } else {
       try {
-         const { status } = await axios({
+         await axios({
             method: 'POST',
             url: `https://driftview-backend.duhbhavesh.repl.co/history`,
             data: {
@@ -134,9 +124,7 @@ export const handleAddToHistory = async ({ state, dispatch, video }) => {
             },
          });
 
-         if (status === 200 || status === 201) {
-            dispatch({ type: 'ADD_TO_HISTORY', payload: video });
-         }
+         dispatch({ type: 'ADD_TO_HISTORY', payload: video });
       } catch (err) {
          console.log(err);
       }
@@ -145,14 +133,12 @@ export const handleAddToHistory = async ({ state, dispatch, video }) => {
 
 export const handleRemoveFromHistory = async ({ dispatch, video }) => {
    try {
-      const { status } = await axios({
+      await axios({
          method: 'DELETE',
          url: `https://driftview-backend.duhbhavesh.repl.co/history/${video.id}`,
       });
 
-      if (status === 200 || status === 201) {
-         dispatch({ type: 'REMOVE_FROM_HISTORY', payload: video });
-      }
+      dispatch({ type: 'REMOVE_FROM_HISTORY', payload: video });
    } catch (err) {
       console.log(err);
    }

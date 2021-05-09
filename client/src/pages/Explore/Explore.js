@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SidebarDesktop } from '../../components/Sidebar/SidebarDesktop';
-import { VideoCard } from '../../components/VideoCard/VideoCard';
+import { VideoCard } from '../../components/Cards/VideoCard/VideoCard';
 import { useData } from '../../context/DataContext';
 import './Explore.css';
 
