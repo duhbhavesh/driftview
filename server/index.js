@@ -4,7 +4,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { initializeDBConnection } = require('./db/db.connect');
-const { PopulateVideos } = require('./models/video');
 const videosRouter = require('./routes/videos');
 const videosLikedRouter = require('./routes/liked');
 const videosWatchLaterRouter = require('./routes/watchLater');
@@ -20,7 +19,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 initializeDBConnection();
-// PopulateVideos()
 
 app.get('/', (req, res) => {
    res.json({ success: true, message: 'Driftview - API' });
