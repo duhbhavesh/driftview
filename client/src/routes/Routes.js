@@ -6,11 +6,15 @@ import { History } from '../pages/History/History';
 import { Playlists } from '../pages/Playlists/Playlists';
 import { WatchLater } from '../pages/WatchLater/WatchLater';
 import { Library } from '../pages/Library/Library';
+import { SignIn } from '../pages/Auth/SignIn/SignIn';
+import { SignUp } from '../pages/Auth/SignUp/SignUp';
 
 export const Routes = () => {
    return (
       <Routing>
          <Route path='/' element={<Explore />} />
+         <Route path='/signin' element={<SignIn />} />
+         <Route path='/signup' element={<SignUp />} />
          <Route path='/home' element={<Explore />} />
          <Route path='/explore' element={<Explore />} />
          <Route path='/watch/:videoID' element={<VideoDetail />} />
