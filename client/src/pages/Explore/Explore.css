@@ -1,0 +1,27 @@
+.video-card {
+   border-radius: 5px;
+   padding: 0.6rem;
+   margin: 0.3rem;
+   margin-bottom: 1rem;
+}
+.video-card:hover {
+   box-shadow: 0px 2px 10px rgb(149 157 165 / 20%);
+   transition: ease-in 300ms;
+}
+
+.video-card a {
+   color: inherit;
+   text-decoration: none;
+}
+
+@media (min-width: 840px) {
+   .video-card {
+      width: 31%;
+   }
+}
+
+@media (min-width: 1400px) {
+   .video-card {
+      width: 23%;
+   }
+}

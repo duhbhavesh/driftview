@@ -1,0 +1,36 @@
+.navbar {
+   background-color: #2d3133;
+}
+
+.container-nav {
+   padding-bottom: 6rem;
+}
+
+.navbar .nav-item:not(:last-of-type) {
+   margin-right: 1.2rem;
+}
+
+.navbar-sm {
+   position: fixed;
+   width: 100%;
+   z-index: 2;
+   background-color: #2d3133;
+}
+
+@media (min-width: 840px) {
+   .container-nav {
+      padding-bottom: 3rem;
+   }
+
+   .navbar {
+      margin-top: 0;
+      padding-left: 2rem;
+      padding-right: 2rem;
+   }
+
+   .navbar-md {
+      position: fixed;
+      width: 100%;
+      z-index: 2;
+   }
+}

@@ -1,0 +1,17 @@
+.video-playlist-card {
+   position: relative;
+   padding: 0.7rem;
+}
+
+.video-playlist-card:hover {
+   box-shadow: 0px 2px 10px rgb(149 157 165 / 20%);
+   transition: ease-in 300ms;
+}
+
+.video-playlist-card .video-thumb {
+   margin-bottom: 0.5rem;
+}
+
+.video-playlist-card a {
+   color: #fff;
+}
