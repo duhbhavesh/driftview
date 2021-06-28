@@ -33,7 +33,7 @@ export const SignIn = () => {
                      />
                   </div>
                   <button className='btn btn-primary btn-auth '>Log In</button>
-                  <Link className='signup-link' to='/signup'>
+                  <Link className='auth-link' to='/signup'>
                      <small>New to Driftview? Create an account</small>
                   </Link>
                </div>

@@ -17,3 +17,5 @@ export const checkWatchLater = (state, video) => {
 export const checkHistory = (state, video) => {
    return !!state.videosHistory.find((item) => item.id === video.id);
 };
+
+export const API_ENDPOINT = 'https://driftview-backend-1.duhbhavesh.repl.co/';
