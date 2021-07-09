@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 import { useAuth } from '../../../context/AuthContext';
 import '../Auth.css';
 
