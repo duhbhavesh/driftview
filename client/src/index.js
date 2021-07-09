@@ -9,11 +9,11 @@ import './styles.css';
 ReactDOM.render(
    <React.StrictMode>
       <DataProvider>
-         <AuthProvider>
-            <Router>
+         <Router>
+            <AuthProvider>
                <App />
-            </Router>
-         </AuthProvider>
+            </AuthProvider>
+         </Router>
       </DataProvider>
    </React.StrictMode>,
    document.getElementById('root'),

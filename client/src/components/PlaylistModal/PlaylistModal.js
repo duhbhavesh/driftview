@@ -1,40 +1,34 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useData } from '../../context/DataContext';
-import { checkyPlaylistVideosID } from '../../utils/utils';
+import { useAuth } from '../../context/AuthContext';
+import {
+   handleAddNewPlaylist,
+   handleAddVideoToPlaylist,
+   handleRemoveVideoFromPlaylist,
+} from '../../utils/requests';
+import { checkPlaylistVideosId } from '../../utils/utils';
 import './PlaylistModal.css';
 
 export const PlaylistModal = ({ video, showModal, setShowModal }) => {
-   const { state, dispatch } = useData();
-   const { videosPlaylist } = state;
+   const {
+      state: { playlists },
+      dispatch,
+   } = useData();
+   const {
+      authState: { token },
+   } = useAuth();
    const [inputValue, setInputValue] = useState('');
 
    const notify = (message) => toast.success(message);
 
-   const handleNewPlaylist = (e) => {
-      e.preventDefault();
-      if (inputValue.trim().length === 0) {
-         return;
-      } else {
-         notify('Created a New Playlist');
-         dispatch({ type: 'ADD_NEW_PLAYLIST', payload: inputValue });
-         setInputValue('');
-      }
-   };
-
    const handleCheckBox = (item) => {
-      if (checkyPlaylistVideosID(item.id, video.id) === true) {
-         notify(`Removed from the ${item.name} Playlist`);
-         dispatch({
-            type: 'REMOVE_FROM_PLAYLIST',
-            payload: { name: item.name, id: video.id },
-         });
+      if (checkPlaylistVideosId(item, video.id) === true) {
+         handleRemoveVideoFromPlaylist({ dispatch, item, video, token });
+         notify(`Removed from the ${item.playlistName} Playlist`);
       } else {
-         notify(`Added to the ${item.name} Playlist`);
-         dispatch({
-            type: 'ADD_TO_PLAYLIST',
-            payload: { name: item.name, id: video.id },
-         });
+         handleAddVideoToPlaylist({ dispatch, item, video, token });
+         notify(`Added to the ${item.playlistName} Playlist`);
       }
    };
 
@@ -55,7 +49,7 @@ export const PlaylistModal = ({ video, showModal, setShowModal }) => {
                </button>
             </div>
             <div className='modal-options'>
-               {videosPlaylist.map((item, index) => {
+               {playlists?.map((item, index) => {
                   return (
                      <div className='modal-option' key={index}>
                         <label
@@ -67,18 +61,25 @@ export const PlaylistModal = ({ video, showModal, setShowModal }) => {
                               type='checkbox'
                               name='checkbox'
                               id={`checkbox${index}`}
-                              checked={checkyPlaylistVideosID(
-                                 item.id,
-                                 video.id,
-                              )}
+                              checked={checkPlaylistVideosId(item, video.id)}
                            />
-                           {item.name}
+                           {item?.playlistName}
                         </label>
                      </div>
                   );
                })}
             </div>
-            <form className='modal-form' onSubmit={(e) => handleNewPlaylist(e)}>
+            <form
+               className='modal-form'
+               onSubmit={(e) =>
+                  handleAddNewPlaylist({
+                     e,
+                     dispatch,
+                     token,
+                     setInputValue,
+                     inputValue,
+                  })
+               }>
                <input
                   className='modal-input'
                   value={inputValue}

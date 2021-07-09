@@ -1,0 +1,36 @@
+.container-profile {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   max-width: 400px;
+   padding: 1rem;
+   margin: 0 auto;
+   min-height: 70vh;
+}
+
+.card-profile {
+   background-color: #2d3133;
+   border-radius: 5px;
+   margin-top: 2rem;
+   padding: 0.8rem;
+   padding-top: 2rem;
+   padding-bottom: 3rem;
+}
+
+.profile-info {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   border: 1px solid #434242;
+   padding: 0.5rem;
+}
+
+.profile-label {
+   margin-right: 1rem;
+   font-weight: 500;
+}
+
+.title-profile {
+   text-align: center;
+   font-size: 1.3rem;
+}

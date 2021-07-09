@@ -1,21 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useData } from '../../../context/DataContext';
 import './PlaylistCard.css';
 
-export const PlaylistCard = ({ current }) => {
-   const { state } = useData();
-   const { videos } = state;
-
-   const currentVideo = videos.find((item) => item.id === current);
-
+export const PlaylistCard = ({ playlistCard }) => {
    return (
       <>
          <div className='video-playlist-card'>
-            <Link to={`/watch/${currentVideo.watchID}`} key={currentVideo.id}>
+            <Link to={`/watch/${playlistCard?.videoId}`} key={playlistCard?.id}>
                <div className='video-thumb'>
-                  <img src={currentVideo.thumbnail} alt={currentVideo.title} />
+                  <img src={playlistCard.thumbnail} alt={playlistCard?.title} />
                </div>
-               <div className='video-title'>{currentVideo.title}</div>
+               <div className='video-title'>{playlistCard?.title}</div>
             </Link>
          </div>
       </>

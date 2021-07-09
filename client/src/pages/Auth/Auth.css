@@ -47,3 +47,17 @@
    margin-top: 1rem;
    text-align: center;
 }
+
+.server-error {
+   display: block;
+   margin-top: 1rem;
+   text-align: center;
+   background-color: red;
+   padding: 0.5rem;
+   border-radius: 0.1rem;
+   font-weight: 500;
+}
+
+.account-option {
+   color: #fff;
+}

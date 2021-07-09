@@ -1,17 +1,31 @@
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import { useData } from '../../context/DataContext';
-import { handleAddRemoveWatchLater } from '../../utils/requests';
+import { handleToggleWatchLater } from '../../utils/requests';
 import { checkWatchLater } from '../../utils/utils';
 
 export const WatchLaterButton = ({ video }) => {
    const { state, dispatch } = useData();
+   const {
+      authState: { token },
+   } = useAuth();
    const notify = (message) => toast.success(message);
+   const navigate = useNavigate();
 
    return (
       <>
          <button
             onClick={() =>
-               handleAddRemoveWatchLater({ state, dispatch, video, notify })
+               token
+                  ? handleToggleWatchLater({
+                       state,
+                       dispatch,
+                       video,
+                       notify,
+                       token,
+                    })
+                  : navigate('/signin')
             }
             className='video-action'>
             <i
