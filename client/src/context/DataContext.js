@@ -7,9 +7,9 @@ export const DataContext = createContext();
 const initialState = {
    videos: data,
    videosLiked: [],
-   videosPlaylist: [{ name: 'My Playlist', id: [] }],
    videosWatchLater: [],
    videosHistory: [],
+   playlists: [],
 };
 
 export const DataProvider = ({ children }) => {

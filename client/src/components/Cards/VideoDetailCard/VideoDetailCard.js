@@ -1,20 +1,25 @@
 import { useState } from 'react';
 import { useData } from '../../../context/DataContext';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import { LikeButton } from '../../Buttons/LikeButton';
 import { WatchLaterButton } from '../../Buttons/WatchLaterButton';
 import { PlaylistModal } from '../../PlaylistModal/PlaylistModal';
 import { handleAddToHistory } from '../../../utils/requests';
 import './VideoDetailCard.css';
+import { useAuth } from '../../../context/AuthContext';
 
 export const VideoDetailCard = () => {
    const { state, dispatch } = useData();
+   const { videos } = state;
+   const {
+      authState: { token },
+   } = useAuth();
+
    const { videoID } = useParams();
    const [showModal, setShowModal] = useState(false);
-   const { videos } = state;
-
-   const video = videos.find((item) => item.watchID === videoID);
+   const navigate = useNavigate();
+   const video = videos.find((item) => item.videoId === videoID);
 
    const handlePlaylist = () => setShowModal(true);
 
@@ -27,8 +32,11 @@ export const VideoDetailCard = () => {
                   height='360px'
                   controls
                   playing={true}
-                  url={`https://www.youtube.com/watch?v=${video.watchID}`}
-                  onPlay={() => handleAddToHistory({ state, dispatch, video })}
+                  url={`https://www.youtube.com/watch?v=${video.videoId}`}
+                  onPlay={() =>
+                     token &&
+                     handleAddToHistory({ state, dispatch, video, token })
+                  }
                />
             </div>
             <div className='video-player-details'>
@@ -38,7 +46,9 @@ export const VideoDetailCard = () => {
                   <div className='video-detail-actions'>
                      <LikeButton video={video} />
                      <button
-                        onClick={() => handlePlaylist()}
+                        onClick={() =>
+                           token ? handlePlaylist() : navigate('/signin')
+                        }
                         className='video-action'>
                         <i className='fas fa-list'></i>
                      </button>

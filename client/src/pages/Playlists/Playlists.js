@@ -4,7 +4,7 @@ import { useData } from '../../context/DataContext';
 
 export const Playlists = () => {
    const { state } = useData();
-   const { videosPlaylist } = state;
+   const { playlists } = state;
 
    return (
       <>
@@ -16,8 +16,11 @@ export const Playlists = () => {
                <div className='wrapper-playlist'>
                   <div className='title'>Playlists</div>
                   <div className='playlist-video'>
-                     {videosPlaylist.map((video) => {
-                        return <Playlist key={video.id} current={video} />;
+                     {console.log('playlists', playlists)}
+                     {playlists?.map((playlist) => {
+                        return (
+                           <Playlist key={playlist.id} playlist={playlist} />
+                        );
                      })}
                   </div>
                </div>

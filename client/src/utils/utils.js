@@ -2,11 +2,11 @@ export const checkLikes = (state, video) => {
    return state.videosLiked.filter((item) => item.id === video.id);
 };
 
-export const checkyPlaylistVideosID = (itemID, videoID) => {
-   if (itemID.filter((listVideoID) => listVideoID === videoID).length === 0) {
-      return false;
-   } else {
+export const checkPlaylistVideosId = (item, videoId) => {
+   if (item.videos?.find((listVideoId) => listVideoId.id === videoId)) {
       return true;
+   } else {
+      return false;
    }
 };
 
@@ -15,5 +15,7 @@ export const checkWatchLater = (state, video) => {
 };
 
 export const checkHistory = (state, video) => {
-   return !!state.videosHistory.find((item) => item.id === video.id);
+   return state.videosHistory.find((item) => item.id === video.id);
 };
+
+export const API_ENDPOINT = 'https://driftview-backend-1.duhbhavesh.repl.co';
