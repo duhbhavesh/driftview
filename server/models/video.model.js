@@ -3,8 +3,7 @@ const { Schema } = mongoose;
 const videoList = require('../data/videoList');
 
 const videoSchema = new Schema({
-   id: Schema.Types.ObjectId,
-   watchID: String,
+   videoId: String,
    title: String,
    description: String,
    thumbnail: String,

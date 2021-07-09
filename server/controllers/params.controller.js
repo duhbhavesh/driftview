@@ -1,5 +1,5 @@
-const { PlaylistItem } = require('../models/playlist');
-const { Video } = require('../models/video');
+const { PlaylistItem } = require('../models/playlist.model');
+const { Video } = require('../models/video.model');
 
 const getVideoById = async (req, res, next, id) => {
    try {
@@ -13,8 +13,8 @@ const getVideoById = async (req, res, next, id) => {
 
 const getPlaylistById = async (req, res, next, id) => {
    try {
-      const videosPlaylist = await PlaylistItem.findById(id);
-      req.videosPlaylist = videosPlaylist;
+      const playlist = await PlaylistItem.findById(id);
+      req.playlist = playlist;
       next();
    } catch (err) {
       return res.status(400).json({ success: false, err: err.message });
