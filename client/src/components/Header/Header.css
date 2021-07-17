@@ -17,6 +17,21 @@
    background-color: #2d3133;
 }
 
+.navbar-brand {
+   display: flex;
+   align-items: center;
+}
+
+#navbar-logo {
+   width: 30px;
+   height: 30px;
+   margin-right: 0.3rem;
+}
+
+#nav-item-sidebar {
+   margin-right: 0rem;
+}
+
 @media (min-width: 840px) {
    .container-nav {
       padding-bottom: 3rem;

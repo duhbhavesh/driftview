@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MobileNavData, DesktopNavData } from '../Header/HeaderData';
 import './Header.css';
 import { SidebarMobile } from '../Sidebar/SidebarMobile';
+import Logo from '../../logo.svg';
 
 export const Header = () => {
    const [showSidebar, setShowSidebar] = useState(false);
@@ -14,7 +15,7 @@ export const Header = () => {
             <nav className='navbar-sm'>
                <div className='navbar'>
                   <ul className='nav-items'>
-                     <li className='nav-item navbar-link'>
+                     <li className='nav-item navbar-link' id='nav-item-sidebar'>
                         <button
                            onClick={handleSidebar}
                            className='btn btn-link btn-bars'
@@ -23,9 +24,14 @@ export const Header = () => {
                         </button>
                      </li>
                      <li className='nav-item navbar-link'>
-                        <a className='navbar-brand nav-item-link' href='/'>
-                           DriftView
-                        </a>
+                        <Link className='navbar-brand nav-item-link' to='/'>
+                           <img
+                              src={Logo}
+                              alt='Driftkart logo'
+                              id='navbar-logo'
+                           />
+                           <span>DriftView</span>
+                        </Link>
                      </li>
                   </ul>
                   <ul className='nav-items'>
@@ -52,13 +58,12 @@ export const Header = () => {
             </nav>
 
             <nav className='navbar navbar-md'>
-               <Link to='/'>
-                  <a
-                     className='navbar-brand navbar-link nav-item-link'
-                     href='/'>
-                     DriftView
-                  </a>
+               <Link className='navbar-brand navbar-link nav-item-link' to='/'>
+                  <img src={Logo} alt='Driftkart logo' id='navbar-logo' />
+
+                  <span>Driftview</span>
                </Link>
+
                <form className='form-inline'>
                   <input
                      className='input-box form-control'
