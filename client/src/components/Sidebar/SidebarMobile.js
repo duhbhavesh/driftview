@@ -1,8 +1,18 @@
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import { SidebarData } from './SidebarData';
 import './SidebarMobile.css';
 
 export const SidebarMobile = ({ showSidebar, setShowSidebar }) => {
+   const {
+      authState: { token },
+      authDispatch,
+      handleUserSignOut,
+   } = useAuth();
+
+   const notify = (message) => toast.success(message);
+
    return (
       <>
          <div
@@ -15,10 +25,20 @@ export const SidebarMobile = ({ showSidebar, setShowSidebar }) => {
                <div className='container-sidebar'>
                   <div className='sidebar-top'>
                      <div className='sidebar-login'>
-                        <Link className='btn btn-primary' to='/signin'>
-                           <i className='fas fas-sidebar fas-sidebar-user fa-user'></i>
-                           Log In
-                        </Link>
+                        {token ? (
+                           <button
+                              onClick={() =>
+                                 handleUserSignOut(authDispatch, notify)
+                              }
+                              className='btn btn-primary'>
+                              Log Out
+                           </button>
+                        ) : (
+                           <Link className='btn btn-primary' to='/signin'>
+                              <i className='fas fas-sidebar fas-sidebar-user fa-user'></i>
+                              Log In
+                           </Link>
+                        )}
                      </div>
                      <div className='sidebar-close'>
                         <button

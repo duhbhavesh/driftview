@@ -9,8 +9,8 @@ export const SignIn = () => {
    const { state } = useLocation();
 
    const [user, setUser] = useState({
-      email: '',
-      password: '',
+      email: 'test@gmail.com',
+      password: 'Test123',
    });
 
    const [serverError, setServerError] = useState('');

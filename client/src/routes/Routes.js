@@ -10,6 +10,7 @@ import { SignIn } from '../pages/Auth/SignIn/SignIn';
 import { SignUp } from '../pages/Auth/SignUp/SignUp';
 import { PrivateRoute } from '../pages/Auth/PrivateRoute';
 import { Account } from '../pages/Account/Account';
+import { SearchResults } from '../pages/SearchResults/SearchResults';
 
 export const Routes = () => {
    return (
@@ -19,6 +20,7 @@ export const Routes = () => {
          <Route path='/signup' element={<SignUp />} />
          <Route path='/home' element={<Explore />} />
          <Route path='/explore' element={<Explore />} />
+         <Route path='/search' element={<SearchResults />} />
          <Route path='/watch/:videoID' element={<VideoDetail />} />
          <Route path='/account' element={<Account />} />
          <PrivateRoute path='/liked' element={<Liked />} />

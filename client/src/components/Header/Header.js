@@ -1,13 +1,18 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MobileNavData, DesktopNavData } from '../Header/HeaderData';
 import './Header.css';
 import { SidebarMobile } from '../Sidebar/SidebarMobile';
 import Logo from '../../logo.svg';
+import { SearchBarDesktop } from '../SearchBar/SearchBarDesktop';
+import { SearchBarMobile } from '../SearchBar/SearchBarMobile';
 
 export const Header = () => {
    const [showSidebar, setShowSidebar] = useState(false);
    const handleSidebar = () => setShowSidebar(true);
+
+   const [searchInput, setSearchInput] = useState('');
+   const navigate = useNavigate();
 
    return (
       <>
@@ -44,17 +49,11 @@ export const Header = () => {
                      ))}
                   </ul>
                </div>
-               <form className='form-inline'>
-                  <input
-                     className='input-box form-control'
-                     type='search'
-                     placeholder='Search'
-                     aria-label='Search'
-                  />
-                  <button className='btn btn-search' type='submit'>
-                     <i className='fas fa-search'></i>
-                  </button>
-               </form>
+               <SearchBarMobile
+                  setSearchInput={setSearchInput}
+                  searchInput={searchInput}
+                  navigate={navigate}
+               />
             </nav>
 
             <nav className='navbar navbar-md'>
@@ -63,18 +62,11 @@ export const Header = () => {
 
                   <span>Driftview</span>
                </Link>
-
-               <form className='form-inline'>
-                  <input
-                     className='input-box form-control'
-                     type='search'
-                     placeholder='Search'
-                     aria-label='Search'
-                  />
-                  <button className='btn btn-search' type='submit'>
-                     <i className='fas fa-search'></i>
-                  </button>
-               </form>
+               <SearchBarDesktop
+                  setSearchInput={setSearchInput}
+                  searchInput={searchInput}
+                  navigate={navigate}
+               />
                <ul className='nav-items'>
                   {DesktopNavData.map((item) => (
                      <li key={item.index} className='nav-item navbar-link'>
