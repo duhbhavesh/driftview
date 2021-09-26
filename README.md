@@ -26,18 +26,13 @@ Below are few project screens to get a glimpse of Driftview, feel free to check 
 -  [x] Auto add to History.
 -  [x] Library page.
 -  [x] Toast Notifications.
--  [x] Responsive Design
+-  [x] Responsive Design.
 
 ## Technology Stack
 
 -  React
 -  DriftCSS (My Component Library)
 -  React router v6
--  Node.js
--  mongodb
--  express
--  jwt
-
 
 ## License
 
