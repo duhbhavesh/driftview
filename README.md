@@ -38,6 +38,10 @@ Below are few project screens to get a glimpse of Driftview, feel free to check 
 -  express
 -  jwt
 
+## Installation
+- [Frontend Installation](https://github.com/duhbhavesh/driftview/tree/main/client#installation)
+- [Backend Installation](https://github.com/duhbhavesh/driftview/tree/main/server#installation)
+
 ## License
 
 -  [MIT]()
