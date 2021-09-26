@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Driftview - Video Library App [![Netlify Status](https://api.netlify.com/api/v1/badges/511f085e-ecf3-492e-a51e-73baa8ce57b8/deploy-status)](https://app.netlify.com/sites/driftview/deploys)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Demo - [Driftview](https://driftview.netlify.app)
 
-## Available Scripts
+Driftview is a Video Library app to learn about photography-related topics, Built using React, Node.js, MongoDB & driftcss.
 
-In the project directory, you can run:
+## Project Screens
 
-### `yarn start`
+Below are few project screens to get a glimpse of Driftview, feel free to check the complete [App](https://driftview.netlify.app).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Home Page](https://res.cloudinary.com/duhbhavesh/image/upload/v1632641538/driftview/1_sqbafc.jpg)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Video Page](https://res.cloudinary.com/duhbhavesh/image/upload/v1632641537/driftview/2_xdft02.jpg)
 
-### `yarn test`
+![Create Playlist Page](https://res.cloudinary.com/duhbhavesh/image/upload/v1632637734/driftview/3_tnutse.jpg)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Playlists Page](https://res.cloudinary.com/duhbhavesh/image/upload/v1632638674/driftview/5_iytegu.jpg)
 
-### `yarn build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-  [x] JWT Authentication.
+-  [x] Like/Unlike Video.
+-  [x] Add/Remove from Watch Later.
+-  [x] Playlist Management.
+-  [x] Search Videos.
+-  [x] Auto add to History.
+-  [x] Library page.
+-  [x] Toast Notifications.
+-  [x] Responsive Design.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technology Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-  React
+-  DriftCSS (My Component Library)
+-  React router v6
 
-### `yarn eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+-  Clone the project
+-  Install the dependencies
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```javascript
+$ npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+-  Start the development server
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```javascript
+$ npm start
+```
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-  [MIT]()
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Let's connect
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-  Twitter - [@duhbhavesh](https://twitter.com/duhbhavesh)
+-  Linkedin - [Bhavesh Kasturi](https://www.linkedin.com/in/bhavesh-kasturi/)
