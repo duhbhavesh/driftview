@@ -33,6 +33,10 @@ Below are few project screens to get a glimpse of Driftview, feel free to check 
 -  React
 -  DriftCSS (My Component Library)
 -  React router v6
+-  Node.js
+-  mongodb
+-  express
+-  jwt
 
 ## License
 
