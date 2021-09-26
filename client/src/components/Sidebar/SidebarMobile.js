@@ -15,12 +15,11 @@ export const SidebarMobile = ({ showSidebar, setShowSidebar }) => {
                <div className='container-sidebar'>
                   <div className='sidebar-top'>
                      <div className='sidebar-login'>
-                        <a className='btn btn-primary' href='/'>
+                        <Link className='btn btn-primary' to='/signin'>
                            <i className='fas fas-sidebar fas-sidebar-user fa-user'></i>
                            Log In
-                        </a>
+                        </Link>
                      </div>
-
                      <div className='sidebar-close'>
                         <button
                            onClick={() => setShowSidebar(false)}

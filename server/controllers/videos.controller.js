@@ -1,9 +1,9 @@
-const { Video } = require('../models/video');
+const { Video } = require('../models/video.model');
 
 const getVideos = async (req, res) => {
    try {
       const videos = await Video.find({});
-      res.json({ success: true, videos });
+      res.json({ success: true, response: videos });
    } catch (err) {
       res.status(500).json({
          success: false,
@@ -15,8 +15,8 @@ const getVideos = async (req, res) => {
 
 const getVideo = async (req, res) => {
    try {
-      const { id } = req.params;
-      const video = await Video.findById(id);
+      const { videoId } = req.params;
+      const video = await Video.findById(videoId);
       res.json({ success: true, video });
    } catch (err) {
       res.status(500).json({

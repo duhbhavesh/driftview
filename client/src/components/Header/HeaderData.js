@@ -16,7 +16,7 @@ export const MobileNavData = [
    },
    {
       index: 4,
-      link: '/login',
+      link: '/account',
       iconClassName: 'fas fa-user',
    },
 ];
@@ -44,7 +44,7 @@ export const DesktopNavData = [
    },
    {
       index: 5,
-      link: '/login',
+      link: '/account',
       iconClassName: 'fas fa-user',
    },
 ];

@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import { useData } from '../../context/DataContext';
 import { handleRemoveLike } from '../../utils/requests';
 import { Card } from '../Cards/Card/Card';
 
 export const LikedVideos = () => {
    const { state, dispatch } = useData();
+   const {
+      authState: { token },
+   } = useAuth();
    const { videosLiked } = state;
+   console.log(videosLiked.length);
 
    return (
       <>
@@ -18,12 +23,12 @@ export const LikedVideos = () => {
                         <div key={video.id} className='video-card'>
                            <div
                               onClick={() =>
-                                 handleRemoveLike({ dispatch, video })
+                                 handleRemoveLike({ dispatch, video, token })
                               }
                               className='video-remove'>
                               &times;
                            </div>
-                           <Link to={`/watch/${video.watchID}`}>
+                           <Link to={`/watch/${video.videoId}`}>
                               <Card key={video.id} video={video} />
                            </Link>
                         </div>

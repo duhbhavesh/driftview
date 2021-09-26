@@ -4,14 +4,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { initializeDBConnection } = require('./db/db.connect');
-const videosRouter = require('./routes/videos');
-const videosLikedRouter = require('./routes/liked');
-const videosWatchLaterRouter = require('./routes/watchLater');
-const videosHistoryRouter = require('./routes/history');
-const videosPlaylistRouter = require('./routes/playlist');
+const authRouter = require('./routes/auth.router');
+const userRouter = require('./routes/user.router');
+const videosRouter = require('./routes/videos.router');
+const videosLikedRouter = require('./routes/liked.router');
+const videosWatchLaterRouter = require('./routes/watchLater.router');
+const videosHistoryRouter = require('./routes/history.router');
+const videosPlaylistRouter = require('./routes/playlist.router');
+const { PopulateVideos } = require('./models/video.model');
 
-const { errorHandler } = require('./middlewares/error-handler');
-const { routeNotFound } = require('./middlewares/route-not-found');
+const { handleError } = require('./middlewares/handleError.middleware');
+const {
+   handleRouteNotFound,
+} = require('./middlewares/handleRouteNotFound.middleware');
 
 const app = express();
 
@@ -19,19 +24,23 @@ app.use(bodyParser.json());
 app.use(cors());
 
 initializeDBConnection();
+// PopulateVideos()
 
 app.get('/', (req, res) => {
    res.json({ success: true, message: 'Driftview - API' });
 });
+app.use('/api', videosRouter);
 
-app.use('/videos', videosRouter);
-app.use('/liked', videosLikedRouter);
-app.use('/watchlater', videosWatchLaterRouter);
-app.use('/history', videosHistoryRouter);
-app.use('/playlist', videosPlaylistRouter);
+app.use('/api', authRouter);
 
-app.use(routeNotFound);
-app.use(errorHandler);
+app.use('/api', userRouter);
+app.use('/api', videosLikedRouter);
+app.use('/api', videosWatchLaterRouter);
+app.use('/api', videosHistoryRouter);
+app.use('/api', videosPlaylistRouter);
+
+app.use(handleRouteNotFound);
+app.use(handleError);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
